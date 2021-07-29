@@ -72,7 +72,7 @@ function calcPrice() {
     totalPrice = 0;
   }
   orderTotal.innerText = totalPrice;
-  orderTotalInput.value = totalPrice;
+  orderTotalInput.value = `Order Total: $${totalPrice} - Includes sales tax and $4 for shipping`;
 }
 
 function checkForTradersInOrder() {
@@ -82,10 +82,13 @@ function checkForTradersInOrder() {
   );
 
   const traderCardInfoSection = document.querySelector("#trader-card-info");
+  const traderFields = traderCardInfoSection.querySelectorAll("input");
 
   if (traderCardsInOrder) {
     traderCardInfoSection.hidden = false;
+    traderFields.forEach((field) => (field.disabled = false));
   } else {
     traderCardInfoSection.hidden = true;
+    traderFields.forEach((field) => (field.disabled = true));
   }
 }

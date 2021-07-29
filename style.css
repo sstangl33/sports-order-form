@@ -8,8 +8,9 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: "sen", serif;
+  font-family: "Sen", serif;
   letter-spacing: 1px;
+  color: #333;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31,29 +32,43 @@ body {
 }
 
 @media screen and (max-width: 600px) {
+  body {
+    background: #fff;
+  }
+
   .container {
     width: 100%;
     box-shadow: none;
   }
 }
 
-.title {
+.title,
+h3 {
   font-family: "Playfair Display", serif;
   text-align: center;
 }
 
 h1 {
   margin-bottom: 0;
+  font-size: 2rem;
 }
 
 h2 {
   margin-top: 0;
+  font-size: 1.8rem;
 }
 
 h3 {
   background: #666;
   color: #fff;
   padding: 0.75rem;
+  font-size: 1.6rem;
+}
+
+h4 {
+  font-size: 1.3rem;
+  margin: 1rem 0;
+  text-align: center;
 }
 
 .large-font {
@@ -65,6 +80,7 @@ h3 {
   width: 60%;
   min-width: 225px;
   margin: 0 auto 1rem;
+  display: block;
 }
 
 hr {
@@ -72,7 +88,7 @@ hr {
 }
 
 p {
-  font-size: 0.9rem;
+  font-size: 1rem;
   text-align: center;
 }
 
@@ -87,12 +103,22 @@ a:hover {
 
 address {
   line-height: 1.5;
+  text-align: center;
+}
+
+.phone-num {
+  display: block;
+  text-align: center;
+}
+
+.intro-text {
+  margin: 1.8rem 0;
+  line-height: 1.3;
 }
 
 /* Form */
 #form {
   width: 90%;
-  margin-top: 1.5rem;
 }
 
 .form-group {
@@ -103,7 +129,7 @@ address {
 label {
   position: relative;
   bottom: 3px;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .product-box label {
@@ -154,7 +180,7 @@ button {
   height: 50px;
   width: 100%;
   font-family: "Sen", sans-serif;
-  font-size: 20px;
+  font-size: 1.25rem;
   letter-spacing: 2px;
   margin-top: 1rem;
 }
@@ -185,7 +211,7 @@ button:focus {
 }
 
 .small {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   margin: 1rem 0 0.5rem;
   line-height: 1.3;
 }
@@ -196,37 +222,36 @@ button:focus {
 
 .multi-product label {
   bottom: 0;
-  margin: 0;
+}
+
+select {
+  margin: 0.75rem 0;
 }
 
 .col-1-of-2 {
   width: 50%;
-  margin-left: 3rem;
+  margin-left: 10%;
 }
 
 .checkbox-wrapper {
-  width: 50%;
-  margin: 0 auto;
+  width: 75%;
+  margin: 1rem -1rem 1rem auto;
+  min-width: 180px;
 }
 
 .quantity-wrapper {
+  margin: 1rem auto;
   text-align: center;
-  margin: 1rem 0;
 }
 
-@media screen and (max-width: 400px) {
-  .col-wrapper {
-    display: block;
-  }
-  .col-1-of-2 {
-    width: 100%;
-  }
-  .checkbox-wrapper {
-    width: 100%;
-  }
+.multi-product .quantity-wrapper {
+  text-align: right;
+  max-width: 250px;
+}
 
-  .form-group {
-    margin: 1rem 0;
+@media screen and (max-width: 258px) {
+  .multi-product .quantity-wrapper {
+    white-space: nowrap;
   }
 }
 
@@ -258,50 +283,40 @@ button:focus {
   background: #888;
 }
 
-/* /////////////////////////////////////////////////// */
+@media screen and (max-width: 360px) {
+  .container {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 
-.checkbox {
-  display: grid;
-  grid-template-columns: -webkit-min-content auto;
-  grid-template-columns: min-content auto;
-  grid-gap: 0.5em;
-  font-size: 2rem;
-  color: var(--color);
-  justify-content: center;
-}
+  .col-wrapper {
+    display: block;
+  }
 
-.checkbox__control {
-  display: inline-grid;
-  width: 1em;
-  height: 1em;
-  border-radius: 0.25em;
-  border: 0.1em solid currentColor;
-}
-.checkbox__control svg {
-  transition: transform 0.1s ease-in 25ms;
-  transform: scale(0);
-  transform-origin: bottom left;
+  .col-1-of-2 {
+    width: 100%;
+    margin-left: 33%;
+  }
+
+  .form-group {
+    margin: 1rem 0;
+  }
 }
 
-.checkbox__input {
-  display: grid;
-  grid-template-areas: "checkbox";
-}
-.checkbox__input > * {
-  grid-area: checkbox;
-}
-.checkbox__input input {
-  opacity: 0;
-  width: 1em;
-  height: 1em;
-}
-.checkbox__input input:focus + .checkbox__control {
-  box-shadow: 0 0 0 0.05em #fff, 0 0 0.15em 0.1em currentColor;
-}
-.checkbox__input input:checked + .checkbox__control svg {
-  transform: scale(1);
-}
+@media screen and (max-width: 400px) {
+  .order-total-display {
+    font-size: 1.2rem;
+    margin: 0.1rem 0.25rem;
+  }
 
-select {
-  margin: 0 1rem 1rem 0;
+  .order-total-banner .small {
+    font-size: 0.6rem;
+    margin: 0.5rem 0;
+  }
+
+  .submit-btn {
+    width: 180px;
+    height: 32px;
+    font-size: 1rem;
+  }
 }
