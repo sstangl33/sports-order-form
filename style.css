@@ -121,23 +121,21 @@ address {
   width: 90%;
 }
 
-.form-group {
+/* field-group */
+.field-group {
   height: auto;
-  margin: 1rem 0;
-}
-
-label {
+  margin: 0.75rem 0 0;
+  padding-bottom: 1.25rem;
   position: relative;
-  bottom: 3px;
+}
+
+.field-group label {
   font-size: 1rem;
+  margin-bottom: 0.25rem;
+  display: inline-block;
 }
 
-.product-box label {
-  bottom: 0;
-  margin: 0.5rem;
-}
-
-.form-group input,
+.field-group input,
 input[type="checkbox"]:not(.multi-product input[type="checkbox"]) {
   width: 100%;
   height: 34px;
@@ -147,6 +145,49 @@ input[type="checkbox"]:not(.multi-product input[type="checkbox"]) {
   outline: none;
   box-sizing: border-box;
   transition: all 0.3s;
+}
+
+.field-group.success input {
+  border-color: #2ecc71;
+}
+
+.field-group.error input {
+  border-color: #e74c3c;
+}
+
+.field-group i {
+  position: absolute;
+  top: 2rem;
+  right: 0.8125rem;
+  visibility: hidden;
+}
+
+.field-group.success i.fa-check-circle {
+  visibility: visible;
+  color: #2ecc71;
+}
+
+.field-group.error i.fa-exclamation-circle {
+  visibility: visible;
+  color: #e74c3c;
+}
+
+.field-group small {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
+}
+
+.field-group.error small {
+  visibility: visible;
+  color: #e74c3c;
+}
+
+/* product-box */
+.product-box label {
+  bottom: 0;
+  margin: 0.5rem;
 }
 
 .large-checkbox {
@@ -161,14 +202,6 @@ input[type="checkbox"]:not(.multi-product input[type="checkbox"]) {
 input[type="checkbox"]:hover,
 select:hover {
   cursor: pointer;
-}
-
-input:valid {
-  border-color: green;
-}
-
-input:invalid {
-  border-color: red;
 }
 
 button {
@@ -298,7 +331,7 @@ select {
     margin-left: 33%;
   }
 
-  .form-group {
+  .field-group {
     margin: 1rem 0;
   }
 }
@@ -319,4 +352,19 @@ select {
     height: 32px;
     font-size: 1rem;
   }
+}
+
+.error-message {
+  border: 1px solid red !important;
+  background: red;
+}
+
+.error-message[placeholder] {
+  color: #fff !important;
+  opacity: 1 !important;
+  font-weight: bold;
+}
+
+.error-message::placeholder {
+  opacity: 1; /* Firefox */
 }
