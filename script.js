@@ -1,4 +1,12 @@
+import products from "./products.json";
+
 const form = document.querySelector("#form");
+const sportPackageWrapper = document.querySelector("#sport-package-wrapper");
+const designerSpecialtyWrapper = document.querySelector(
+  "#designer-specialty-wrapper"
+);
+const alaCartWrapper = document.querySelector("#ala-carte-wrapper");
+const productBoxTemplate = document.querySelector("#product-box-template");
 const checkBoxes = document.querySelectorAll("[data-checkbox]");
 const selectBoxes = document.querySelectorAll("select");
 const textInputs = document.querySelectorAll('[type="text"]');
@@ -15,9 +23,47 @@ let totalPrice = 0;
 let selectedProducts = loadSessionProductData();
 let customerInfo = loadSessionCustomerData();
 
-clearSelections();
-loadProductSelections();
-loadCustomerData();
+buildOrderForm();
+
+function buildOrderForm() {
+  renderProducts(products);
+  clearSelections();
+  loadProductSelections();
+  loadCustomerData();
+}
+
+function renderProducts(products) {
+  products.forEach((product) => {
+    const productBox = productBoxTemplate.content.cloneNode(true);
+
+    const productTitle = productBox.querySelector("[data-title]");
+    productTitle.innerText = `${product.name.replace(/-/g, " ")} - $${
+      product.price
+    }.00`;
+
+    const productDescription = productBox.querySelector("[data-description]");
+    productDescription.innerText = product.description;
+
+    const productInput = productBox.querySelector("[data-input]");
+    productInput.setAttribute("data-price", `${product.price}`);
+    productInput.setAttribute("name", `${product.name}`);
+    productInput.setAttribute("value", `Purchase - $${product.price}.00 each`);
+
+    const productLabel = productBox.querySelector("[data-label]");
+    productLabel.setAttribute("id", `Label-${product.name}`);
+
+    const quantitySelect = productBox.querySelector("[data-select]");
+    quantitySelect.setAttribute("name", `${product.name}-Quantity`);
+
+    if (product.category === "sports-package") {
+      sportPackageWrapper.append(productBox);
+    } else if (product.category === "designer-specialty") {
+      designerSpecialtyWrapper.append(productBox);
+    } else if (product.category === "ala-carte") {
+      alaCartWrapper.append(productBox);
+    }
+  });
+}
 
 form.addEventListener("click", (e) => {
   if (!e.target.matches("input[type='checkbox'")) return;

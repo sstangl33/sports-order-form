@@ -1,0 +1,142 @@
+[
+  {
+    "name": "Package-A",
+    "description": "1-Designer Memory Mate, 1-8x10, 2-5x7, 8-Wallets, and 1-Personalized Button",
+    "price": "42",
+    "category": "sports-package",
+    "template": "product-box"
+  },
+  {
+    "name": "Package-B",
+    "description": "1-Designer Memory Mate, 2-5x7, and 8-Wallets",
+    "price": "32",
+    "category": "sports-package",
+    "template": "product-box"
+  },
+  {
+    "name": "Package-C",
+    "description": "1-Memory Mate and 8-Deluxe Trader Cards",
+    "price": "26",
+    "category": "sports-package",
+    "template": "product-box"
+  },
+  {
+    "name": "Package D - $23.00",
+    "description": "1-8x10, 2-5x7, and 1-Personalized Button",
+    "price": "23",
+    "category": "sports-package",
+    "template": "product-box"
+  },
+  {
+    "name": "Package-E",
+    "description": "1-Memory Mate (1-5x7 and 4-wallets individual and 1-5x7 team in a folder)",
+    "price": "13",
+    "category": "sports-package",
+    "template": "product-box"
+  },
+  {
+    "name": "Designer-Memory-Mate",
+    "description": "8x10 print with individual photo and team photo personalized with name.",
+    "price": "15",
+    "category": "designer-specialty",
+    "template": "product-box"
+  },
+  {
+    "name": "Desktop-Memory-Mate",
+    "description": "Hinged, stand-up 3.5x5 individual, 7x5 team photo.",
+    "price": "24",
+    "category": "designer-specialty",
+    "template": "product-box"
+  },
+  {
+    "name": "8-Deluxe-Trading-Cards",
+    "description": "",
+    "price": "15",
+    "category": "designer-specialty",
+    "template": "product-box"
+  },
+  {
+    "name": "Personalized-Sports-Ticket",
+    "description": "",
+    "price": "20",
+    "category": "designer-specialty",
+    "template": "product-box"
+  },
+  {
+    "name": "8x10-Cut-Out-Acrylic-Statue",
+    "description": "",
+    "price": "30",
+    "category": "designer-specialty",
+    "template": "product-box"
+  },
+  {
+    "name": "4x5-Acrylic-Sports-Magnet",
+    "description": "",
+    "price": "12",
+    "category": "designer-specialty",
+    "template": "product-box"
+  },
+  {
+    "name": "2-Designer-Magnets",
+    "description": "(Baseball, Softball, Cheer, Soccer, Football, Basketball, Volleyball, and Star)",
+    "price": "12",
+    "category": "designer-specialty",
+    "template": "product-box"
+  },
+  {
+    "name": "PVC-Key-Tags",
+    "description": "(Set of 3 printed on front and back)",
+    "price": "9",
+    "category": "designer-specialty",
+    "template": "product-box"
+  },
+  {
+    "name": "Low-Resolution-Digital-Image",
+    "description": "(Wallet Size 2x3\" @300dpi)",
+    "price": "15",
+    "category": "designer-specialty",
+    "template": "product-box"
+  },
+  {
+    "name": "8-Wallets",
+    "description": "",
+    "price": "11", 
+    "category": "ala-carte",
+    "template": "product-box"
+  },
+  {
+    "name": "4-4x5",
+    "description": "",
+    "price": "11", 
+    "category": "ala-carte",
+    "template": "product-box"
+  },
+  {
+    "name": "Key-Chain",
+    "description": "2.5x3.5\" key-chain",
+    "price": "6", 
+    "category": "ala-carte",
+    "template": "product-box"
+  },
+  {
+    "name": "Magnet",
+    "description": "2.5x3.5\" magnet",
+    "price": "6", 
+    "category": "ala-carte",
+    "template": "product-box"
+  },
+  {
+    "name": "Traditional-Button",
+    "description": "3.5\" round button",
+    "price": "6", 
+    "category": "ala-carte",
+    "template": "product-box"
+  },
+  {
+    "name": "Round-Personalized-Button",
+    "description": "3.5\" round button",
+    "price": "7", 
+    "category": "ala-carte",
+    "template": "product-box"
+  }
+]
