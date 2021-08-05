@@ -4,17 +4,36 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+  <!-- Favicon -->
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/manifest.json">
+  
   <title>2021 Sports Order Form</title>
-  <link rel="icon" type="image/png" href="https://www.google.com/s2/u/0/favicons?domain=css-tricks.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <link rel="stylesheet" href="style.css?833436322321439">
-  <script defer src='script.js?8017552443589024'></script>
+  <link rel="stylesheet" href="style.css?83355436322321439">
+  <script defer src='script.js?801756552443589024'></script>
 </head>
 <body>
     <div class="container">
       <!-- Form -->
-      <!-- <form id="form" action="https://formsubmit.co/billsauersphotography@gmail.com" method="POST"> -->
-      <form id="form" action="https://formsubmit.co/stephenstangl@gmail.com" method="POST">
+      <form id="form" action="https://formsubmit.co/billsauersphotography@gmail.com" method="POST">
+      <!-- <form id="form" action="https://formsubmit.co/stephenstangl@gmail.com" method="POST"> -->
 
         <h1 class='title'>Bill Sauers Photography</h1>
         <h2 class='title'>2021 Sports Order Form</h2>
@@ -22,7 +41,10 @@
         <address>518 Brandywine Drive <br>Cranberry Twp. PA 16066</address>
         <a class="phone-num" href="tel:+7244691247">724-469-1247</a>
 
-        <p class="intro-text">We are unable to accept online orders at this time. However, if you would like to place an order, please fill out the form below, press the "Submit Order" button at the bottom of the page, and we will contact you within 24 hours to complete your&nbsp;order.</p>
+        <p class="intro-text">We are unable to accept online payments at this time. However, if you would like to place an order, please fill out the form below, press the "Submit Order" button at the bottom of the page, and we will contact you within 24 hours to complete your&nbsp;order.</p>
+
+        <p class="intro-text">If you would like to see your child's photo before ordering, please email<br><a href="mailto:billsauersphotography@gmail.com?subject=Proof Request">billsauersphotography@gmail.com</a><br>to request a proof. Please include your child's name, sport, and team in the email.</p>
+
         <p class="large-font"><strong>If you have any issues with this&nbsp;form, <br>please text or call us at <a href="tel:+7244691247">724-469-1247</a></strong></p>
 
         <input data-order-total-input type="hidden" name='order-total' value>
@@ -33,7 +55,10 @@
           <h4>Package A - $42.00</h4>
           <p>1-Designer Memory Mate, 1-8x10, 2-5x7, 8-Wallets, and 1-Personalized&nbsp;Button</p>
           <p class="small">Select this product<br> with the checkbox below</p>
-          <input class="large-checkbox" data-checkbox data-price="42" type="checkbox" name='Package-A' value='Purchase - $42.00 each'>
+          <input class="large-checkbox" data-checkbox data-price="42" type="checkbox" id='Package-A' name='Package-A' value='Purchase - $42.00 each'>
+          <label for="Package-A" class="custom-checkbox custom-checkbox-large">
+            <i class="fas fa-check"></i>
+          </label>
           <div class="quantity-wrapper">
             <label id="Label-Package-A" hidden>Quantity:
               <select disabled name="Package-A-Quantity">
@@ -51,7 +76,10 @@
           <h4>Package B - $32.00</h4>
           <p>1-Designer Memory Mate, 2-5x7, and&nbsp;8-Wallets</p>
           <p class="small">Select this product<br> with the checkbox below</p>
-          <input class="large-checkbox" data-checkbox data-price="32" type="checkbox" name='Package-B' value='Purchase - $32.00 each'>
+          <input class="large-checkbox" data-checkbox data-price="32" type="checkbox" id='Package-B' name='Package-B' value='Purchase - $32.00 each'>
+          <label for="Package-B" class="custom-checkbox custom-checkbox-large">
+            <i class="fas fa-check"></i>
+          </label>
           <div class="quantity-wrapper">
             <label id="Label-Package-B" hidden>Quantity:
               <select disabled name="Package-B-Quantity">
@@ -69,7 +97,10 @@
           <h4>Package C - $26.00</h4>
           <p>1-Memory Mate and 8-Deluxe Trader Cards</p>
           <p class="small">Select this product<br> with the checkbox&nbsp;below</p>
-          <input class="large-checkbox" data-checkbox data-price="26" type="checkbox" name='Package-C' value='Purchase - $26.00 each'>
+          <input class="large-checkbox" data-checkbox data-price="26" type="checkbox" id='Package-C' name='Package-C' value='Purchase - $26.00 each'>
+          <label for="Package-C" class="custom-checkbox custom-checkbox-large">
+            <i class="fas fa-check"></i>
+          </label>
           <div class="quantity-wrapper">
             <label id="Label-Package-C"  hidden>Quantity:
               <select disabled name="Package-C-Quantity">
@@ -86,7 +117,10 @@
           <h4>Package D - $23.00</h4>
           <p> 1-8x10, 2-5x7, and 1-Personalized Button</p>
           <p class="small">Select this product<br> with the checkbox&nbsp;below</p>
-          <input class="large-checkbox" data-checkbox data-price="23" type="checkbox" name='Package-D' value='Purchase - $23.00 each'>
+          <input class="large-checkbox" data-checkbox data-price="23" type="checkbox" id='Package-D' name='Package-D' value='Purchase - $23.00 each'>
+          <label for="Package-D" class="custom-checkbox custom-checkbox-large">
+            <i class="fas fa-check"></i>
+          </label>
           <div class="quantity-wrapper">
             <label id="Label-Package-D" hidden>Quantity:
               <select disabled name="Package-D-Quantity">
@@ -104,7 +138,10 @@
           <h4>Package E - $13.00</h4>
           <p>1-Memory Mate (1-5x7 and 4-wallets individual and 1-5x7 team in a&nbsp;folder)</p>
           <p class="small">Select this product<br> with the checkbox below</p>
-          <input class="large-checkbox" data-checkbox data-price="13" type="checkbox" name='Package-E' value='Purchase - $13.00 each'>
+          <input class="large-checkbox" data-checkbox data-price="13" type="checkbox" id='Package-E' name='Package-E' value='Purchase - $13.00 each'>
+          <label for="Package-E" class="custom-checkbox custom-checkbox-large">
+            <i class="fas fa-check"></i>
+          </label>
           <div class="quantity-wrapper">
             <label id="Label-Package-E" hidden>Quantity:
               <select disabled name="Package-E-Quantity">
@@ -124,7 +161,10 @@
           <h4>Designer Memory Mate - $15.00</h4>
           <p>8x10 print with individual photo and team photo personalized with&nbsp;name.</p>
           <p class="small">Select this product<br> with the checkbox below</p>
-          <input class="large-checkbox" data-checkbox type="checkbox" data-price="15" name='Designer-Memory-Mate' value='Purchase - $15.00 each'>
+          <input class="large-checkbox" data-checkbox type="checkbox" data-price="15" id="Designer-Memory-Mate" name='Designer-Memory-Mate' value='Purchase - $15.00 each'>
+          <label for="Designer-Memory-Mate" class="custom-checkbox custom-checkbox-large">
+            <i class="fas fa-check"></i>
+          </label>
           <div class="quantity-wrapper">
             <label id="Label-Designer-Memory-Mate" hidden>Quantity:
               <select disabled name="Designer-Memory-Mate-Quantity">
@@ -142,7 +182,10 @@
           <h4>Desktop Memory Mate - $24.00</h4>
           <p>Hinged, stand-up 3.5x5 individual, 7x5 team photo.</p>
           <p class="small">Select this product<br> with the checkbox below</p>
-          <input class="large-checkbox" data-checkbox type="checkbox" data-price="24" name='Desktop-Memory-Mate' value='Purchase - $24.00 each'>
+          <input class="large-checkbox" data-checkbox type="checkbox" data-price="24" id='Desktop-Memory-Mate' name='Desktop-Memory-Mate' value='Purchase - $24.00 each'>
+          <label for="Desktop-Memory-Mate" class="custom-checkbox custom-checkbox-large">
+            <i class="fas fa-check"></i>
+          </label>
           <div class="quantity-wrapper">
             <label id="Label-Desktop-Memory-Mate" hidden>Quantity:
               <select disabled name="Desktop-Memory-Mate-Quantity">
@@ -159,7 +202,10 @@
         <div class="product-box">
           <h4>8-Deluxe Trading Cards - $15.00</h4>
           <p class="small">Select this product<br> with the checkbox below</p>
-          <input class="large-checkbox" data-checkbox type="checkbox" data-price="15" name='8-Deluxe-Trading-Cards' value='Purchase - $15.00 each'>
+          <input class="large-checkbox" data-checkbox type="checkbox" data-price="15" id="8-Deluxe-Trading-Cards" name='8-Deluxe-Trading-Cards' value='Purchase - $15.00 each'>
+          <label for="8-Deluxe-Trading-Cards" class="custom-checkbox custom-checkbox-large">
+            <i class="fas fa-check"></i>
+          </label>
           <div class="quantity-wrapper">
             <label id="Label-8-Deluxe-Trading-Cards" hidden>Quantity:
               <select disabled name="8-Deluxe-Trading-Cards-Quantity">
@@ -176,7 +222,10 @@
         <div class="product-box">
           <h4>Personalized Sports Ticket - $20.00</h4>
           <p class="small">Select this product<br> with the checkbox below</p>
-          <input class="large-checkbox" data-checkbox type="checkbox" data-price="20" name='Personalized-Sports-Ticket' value='Purchase - $20.00 each'>
+          <input class="large-checkbox" data-checkbox type="checkbox" data-price="20" id="Personalized-Sports-Ticket" name='Personalized-Sports-Ticket' value='Purchase - $20.00 each'>
+          <label for="Personalized-Sports-Ticket" class="custom-checkbox custom-checkbox-large">
+            <i class="fas fa-check"></i>
+          </label>
           <div class="quantity-wrapper">
             <label id="Label-Personalized-Sports-Ticket" hidden>Quantity:
               <select disabled name="Personalized-Sports-Ticket-Quantity">
@@ -193,7 +242,10 @@
         <div class="product-box">
           <h4>8x10 Cut Out Acrylic Statue - $30.00</h4>
           <p class="small">Select this product<br> with the checkbox below</p>
-          <input class="large-checkbox" data-checkbox type="checkbox" data-price="30" name='8x10-Cut-Out-Acrylic-Statue' value='Purchase - $30.00 each'>
+          <input class="large-checkbox" data-checkbox type="checkbox" data-price="30" id="8x10-Cut-Out-Acrylic-Statue" name='8x10-Cut-Out-Acrylic-Statue' value='Purchase - $30.00 each'>
+          <label for="8x10-Cut-Out-Acrylic-Statue" class="custom-checkbox custom-checkbox-large">
+            <i class="fas fa-check"></i>
+          </label>
           <div class="quantity-wrapper">
             <label id="Label-8x10-Cut-Out-Acrylic-Statue" hidden>Quantity:
               <select disabled name="8x10-Cut-Out-Acrylic-Statue-Quantity">
@@ -210,7 +262,10 @@
         <div class="product-box">
           <h4>4x5 Acrylic Sports Magnet - $12.00</h4>
           <p class="small">Select this product<br> with the checkbox below</p>
-          <input class="large-checkbox" data-checkbox type="checkbox" data-price="12" name='4x5-Acrylic-Sports-Magnet' value='Purchase - $12.00 each'>
+          <input class="large-checkbox" data-checkbox type="checkbox" data-price="12" id="4x5-Acrylic-Sports-Magnet" name='4x5-Acrylic-Sports-Magnet' value='Purchase - $12.00 each'>
+          <label for="4x5-Acrylic-Sports-Magnet" class="custom-checkbox custom-checkbox-large">
+            <i class="fas fa-check"></i>
+          </label>
           <div class="quantity-wrapper">
             <label id="Label-4x5-Acrylic-Sports-Magnet" hidden>Quantity:
               <select disabled name="4x5-Acrylic-Sports-Magnet-Quantity">
@@ -228,7 +283,10 @@
           <h4>2 Designer Magnets - $12.00</h4>
           <p>(Baseball, Softball, Cheer, Soccer, Football, Basketball, Volleyball, and&nbsp;Star)</p>
           <p class="small">Select this product<br> with the checkbox below</p>
-          <input class="large-checkbox" data-checkbox type="checkbox" data-price="12" name='2-Designer-Magnets' value='Purchase - $12.00 each'>
+          <input class="large-checkbox" data-checkbox type="checkbox" data-price="12" id="2-Designer-Magnets" name='2-Designer-Magnets' value='Purchase - $12.00 each'>
+          <label for="2-Designer-Magnets" class="custom-checkbox custom-checkbox-large">
+            <i class="fas fa-check"></i>
+          </label>
           <div class="quantity-wrapper">
             <label id="Label-2-Designer-Magnets" hidden>Quantity:
               <select disabled name="2-Designer-Magnets-Quantity">
@@ -246,7 +304,10 @@
           <h4>PVC Key Tags - $9.00</h4>
           <p>(Set of 3 printed on front and back)</p>
           <p class="small">Select this product<br> with the checkbox below</p>
-          <input class="large-checkbox" data-checkbox type="checkbox" data-price="9" name='PVC-Key-Tags' value='Purchase - $9.00 each'>
+          <input class="large-checkbox" data-checkbox type="checkbox" data-price="9" id="PVC-Key-Tags" name='PVC-Key-Tags' value='Purchase - $9.00 each'>
+          <label for="PVC-Key-Tags" class="custom-checkbox custom-checkbox-large">
+            <i class="fas fa-check"></i>
+          </label>
           <div class="quantity-wrapper">
             <label id="Label-PVC-Key-Tags" hidden>Quantity:
               <select disabled name="PVC-Key-Tags-Quantity">
@@ -265,52 +326,72 @@
           <p class="small">Select the appropriate checkbox <br>for your phone</p>
           <div class="col-wrapper">
             <div class="col-1-of-2">
-              <p><strong>iPhone</strong></p>
+              <p style="margin:2rem 0 0"><strong>iPhone</strong></p>
+              
+              <input data-checkbox type="checkbox" data-price="25" id="Phone-Cover-iPhone-6" name="Phone-Cover-iPhone-6" value="Purchase - $25.00 each">
+              <label for="Phone-Cover-iPhone-6" class="custom-checkbox custom-checkbox-small">
+                <i class="fas fa-check"></i>
+                <span class="checkbox-small-label">iPhone 6</span>
+              </label>
 
-              <label>
-                <input data-checkbox type="checkbox" data-price="25" name="Phone-Cover-iPhone-6" value="Purchase - $25.00 each">
-                iPhone 6
-              </label><br>
-              <label>
-                <input data-checkbox type="checkbox" data-price="25" name="Phone-Cover-iPhone-6plus" value="Purchase - $25.00 each">
-                iPhone 6+
-              </label><br>
-              <label>
-                <input data-checkbox type="checkbox" data-price="25" name="Phone-Cover-iPhone-7" value="Purchase - $25.00 each">
-                iPhone 7
-              </label><br>
-              <label>
-                <input data-checkbox type="checkbox" data-price="25" name="Phone-Cover-iPhone-7plus" value="Purchase - $25.00 each">
-                iPhone 7+
-              </label><br>
-              <label>
-                <input data-checkbox type="checkbox" data-price="25" name="Phone-Cover-iPhone-8" value="Purchase - $25.00 each">
-                iPhone 8
-              </label><br>
-              <label>
-                <input data-checkbox type="checkbox" data-price="25" name="Phone-Cover-iPhone-8plus" value="Purchase - $25.00 each">
-                iPhone 8+
-              </label><br>
-              <label>
-                <input data-checkbox type="checkbox" data-price="25" name="Phone-Cover-iPhone-XR" value="Purchase - $25.00 each">
-                iPhone XR
+              <input data-checkbox type="checkbox" data-price="25" id="Phone-Cover-iPhone-6plus" name="Phone-Cover-iPhone-6plus" value="Purchase - $25.00 each">
+              <label for="Phone-Cover-iPhone-6plus" class="custom-checkbox custom-checkbox-small">
+                <i class="fas fa-check"></i>
+                <span class="checkbox-small-label">iPhone 6+</span>
+              </label>
+
+              <input data-checkbox type="checkbox" data-price="25" id="Phone-Cover-iPhone-7" name="Phone-Cover-iPhone-7" value="Purchase - $25.00 each">
+              <label for="Phone-Cover-iPhone-7" class="custom-checkbox custom-checkbox-small">
+                <i class="fas fa-check"></i>
+                <span class="checkbox-small-label">iPhone 7</span>
+              </label>
+
+              <input data-checkbox type="checkbox" data-price="25" id="Phone-Cover-iPhone-7plus" name="Phone-Cover-iPhone-7plus" value="Purchase - $25.00 each">
+              <label for="Phone-Cover-iPhone-7plus" class="custom-checkbox custom-checkbox-small">
+                <i class="fas fa-check"></i>
+                <span class="checkbox-small-label">iPhone 7+</span>
+              </label>
+
+              <input data-checkbox type="checkbox" data-price="25" id="Phone-Cover-iPhone-8" name="Phone-Cover-iPhone-8" value="Purchase - $25.00 each">
+              <label for="Phone-Cover-iPhone-8" class="custom-checkbox custom-checkbox-small">
+                <i class="fas fa-check"></i>
+                <span class="checkbox-small-label">iPhone 8</span>
+              </label>
+
+              <input data-checkbox type="checkbox" data-price="25" id="Phone-Cover-iPhone-8plus" name="Phone-Cover-iPhone-8plus" value="Purchase - $25.00 each">
+              <label for="Phone-Cover-iPhone-8plus" class="custom-checkbox custom-checkbox-small">
+                <i class="fas fa-check"></i>
+                <span class="checkbox-small-label">iPhone 8+</span>
+              </label>
+
+              <input data-checkbox type="checkbox" data-price="25" id="Phone-Cover-iPhone-XR" name="Phone-Cover-iPhone-XR" value="Purchase - $25.00 each">
+              <label for="Phone-Cover-iPhone-XR" class="custom-checkbox custom-checkbox-small">
+                <i class="fas fa-check"></i>
+                <span class="checkbox-small-label">iPhone XR</span>
               </label>
             </div>
+
             <div class="col-1-of-2">
-              <p><strong>Galaxy</strong></p>
-              <label>
-                <input data-checkbox type="checkbox" data-price="25" name='Phone-Cover-Galaxy-S6' value='Purchase - $25.00 each'>
-                Galaxy 6
-              </label><br>
-              <label>
-                <input data-checkbox type="checkbox" data-price="25" name='Phone-Cover-Galaxy-S7' value='Purchase - $25.00 each'>
-                Galaxy 6+
-              </label><br>
-              <label>
-                <input data-checkbox type="checkbox" data-price="25" name='Phone-Cover-Galaxy-S8' value='Purchase - $25.00 each'>
-                Galaxy 7
-              </label>
-            </div>
+              <p style="margin:2rem 0 0"><strong>Galaxy</strong></p>
+
+                <input data-checkbox type="checkbox" data-price="25" id='Phone-Cover-Galaxy-S6' name='Phone-Cover-Galaxy-S6' value='Purchase - $25.00 each'>
+                <label for="Phone-Cover-Galaxy-S6" class="custom-checkbox custom-checkbox-small">
+                  <i class="fas fa-check"></i>
+                  <span class="checkbox-small-label">Galaxy S6</span>
+                </label>
+
+                <input data-checkbox type="checkbox" data-price="25" id='Phone-Cover-Galaxy-S7' name='Phone-Cover-Galaxy-S7' value='Purchase - $25.00 each'>
+                <label for="Phone-Cover-Galaxy-S7" class="custom-checkbox custom-checkbox-small">
+                  <i class="fas fa-check"></i>
+                  <span class="checkbox-small-label">Galaxy S7</span>
+                </label>
+
+                <input data-checkbox type="checkbox" data-price="25" id='Phone-Cover-Galaxy-S8' name='Phone-Cover-Galaxy-S8' value='Purchase - $25.00 each'>
+                <label for="Phone-Cover-Galaxy-S8" class="custom-checkbox custom-checkbox-small">
+                  <i class="fas fa-check"></i>
+                  <span class="checkbox-small-label">Galaxy S8</span>
+                </label>
+              </div>
           </div> 
           <div class="quantity-wrapper center-wrapper">
             <label id="Label-Phone-Cover-iPhone-6"  hidden >iPhone 6 Quantity:
@@ -410,7 +491,10 @@
           <h4>Low Resolution Digital Image - $15.00</h4>
           <p>(Wallet Size 2x3 @300dpi)</p>
           <p class="small">Select this product<br> with the checkbox below</p>
-          <input class="large-checkbox" data-checkbox type="checkbox" data-price="15" name='Low-Resolution-Digital-Image' value='Purchase - $15.00 each'>
+          <input class="large-checkbox" data-checkbox type="checkbox" data-price="15" id="Low-Resolution-Digital-Image" name='Low-Resolution-Digital-Image' value='Purchase - $15.00 each'>
+          <label for="Low-Resolution-Digital-Image" class="custom-checkbox custom-checkbox-large">
+            <i class="fas fa-check"></i>
+          </label>
           <div class="quantity-wrapper">
             <label id="Label-Low-Resolution-Digital-Image" hidden>Quantity:
               <select disabled name="Low-Resolution-Digital-Image-Quantity">
@@ -430,13 +514,16 @@
           <h4>1-11x14 - $19.00</h4>
           <p class="small">Select this product<br> with one of the checkboxes below</p>
           <div class="checkbox-wrapper">
-            <label>
-              <input data-checkbox type="checkbox" data-price="11" name='1-11x14-Individual' value='Purchase - $11 each'>
-              Individual Photo
-            </label><br>
-            <label>
-              <input data-checkbox type="checkbox" data-price="11" name='1-11x14-Team' value='Purchase - $11 each'>
-              Team Photo
+            <input data-checkbox type="checkbox" data-price="11" id='1-11x14-Individual' name='1-11x14-Individual' value='Purchase - $11 each'>
+            <label for="1-11x14-Individual" class="custom-checkbox custom-checkbox-small">
+              <i class="fas fa-check"></i>
+              <span class="checkbox-small-label">Individual Photo</span>
+            </label>
+
+            <input data-checkbox type="checkbox" data-price="11" id='1-11x14-Team' name='1-11x14-Team' value='Purchase - $11 each'>
+            <label for="1-11x14-Team" class="custom-checkbox custom-checkbox-small">
+              <i class="fas fa-check"></i>
+              <span class="checkbox-small-label">Team Photo</span>
             </label>
           </div>
           <div class="quantity-wrapper center-wrapper">
@@ -465,13 +552,16 @@
           <h4>1-8x10 - $11.00</h4>
           <p class="small">Select this product<br> with one of the checkboxes below</p>
           <div class="checkbox-wrapper">
-            <label>
-              <input data-checkbox type="checkbox" data-price="11" name='1-8x10-Individual' value='Purchase - $11 each'>
-              Individual Photo
-            </label><br>
-            <label>
-              <input data-checkbox type="checkbox" data-price="11" name='1-8x10-Team' value='Purchase - $11 each'>
-              Team Photo
+            <input data-checkbox type="checkbox" data-price="11" id="1-8x10-Individual" name='1-8x10-Individual' value='Purchase - $11 each'>
+            <label for="1-8x10-Individual" class="custom-checkbox custom-checkbox-small">
+              <i class="fas fa-check"></i>
+              <span class="checkbox-small-label">Individual Photo</span>
+            </label>
+
+            <input data-checkbox type="checkbox" data-price="11" id="1-8x10-Team" name='1-8x10-Team' value='Purchase - $11 each'>
+            <label for="1-8x10-Team" class="custom-checkbox custom-checkbox-small">
+              <i class="fas fa-check"></i>
+              <span class="checkbox-small-label">Team Photo</span>
             </label>
           </div>
           <div class="quantity-wrapper center-wrapper">
@@ -500,14 +590,18 @@
           <h4>2-5x7 - $11.00</h4>
           <p class="small">Select this product<br> with one of the checkboxes below</p>
           <div class="checkbox-wrapper">
-            <label>
-              <input data-checkbox type="checkbox" data-price="11" name='2-5x7-Individual' value='Purchase - $11 each'>
-              Individual Photo
-            </label><br>
-            <label>
-              <input data-checkbox type="checkbox" data-price="11" name='2-5x7-Team' value='Purchase - $11 each'>
-              Team Photo
+            <input data-checkbox type="checkbox" data-price="11" id="2-5x7-Individual" name='2-5x7-Individual' value='Purchase - $11 each'>
+            <label for="2-5x7-Individual" class="custom-checkbox custom-checkbox-small">
+              <i class="fas fa-check"></i>
+              <span class="checkbox-small-label">Individual Photo</span>
             </label>
+
+            <input data-checkbox type="checkbox" data-price="11" id="2-5x7-Team" name='2-5x7-Team' value='Purchase - $11 each'>
+            <label for="2-5x7-Team" class="custom-checkbox custom-checkbox-small">
+              <i class="fas fa-check"></i>
+              <span class="checkbox-small-label">Team Photo</span>
+            </label>
+
           </div>
           <div class="quantity-wrapper center-wrapper">
             <label id="Label-2-5x7-Individual" hidden>Individual Quantity:
@@ -534,7 +628,10 @@
         <div class="product-box">
           <h4>8-Wallets - $11.00</h4>
           <p class="small">Select this product<br> with the checkbox below</p>
-          <input class="large-checkbox" data-checkbox type="checkbox" data-price="11" name='8-Wallets' value='Purchase - $11.00 each'>
+          <input class="large-checkbox" data-checkbox type="checkbox" data-price="11" id="8-Wallets" name='8-Wallets' value='Purchase - $11.00 each'>
+          <label for="8-Wallets" class="custom-checkbox custom-checkbox-large">
+            <i class="fas fa-check"></i>
+          </label>
           <div class="quantity-wrapper">
             <label id="Label-8-Wallets" hidden>Quantity:
               <select disabled name="8-Wallets-Quantity">
@@ -551,7 +648,10 @@
         <div class="product-box">
           <h4>4-4x5 - $11.00</h4>
           <p class="small">Select this product<br> with the checkbox below</p>
-          <input class="large-checkbox" data-checkbox type="checkbox" data-price="11" name='4-4x5' value='Purchase - $11.00 each'>
+          <input class="large-checkbox" data-checkbox type="checkbox" data-price="11" id="4-4x5" name='4-4x5' value='Purchase - $11.00 each'>
+          <label for="4-4x5" class="custom-checkbox custom-checkbox-large">
+            <i class="fas fa-check"></i>
+          </label>
           <div class="quantity-wrapper">
             <label id="Label-4-4x5" hidden>Quantity:
               <select disabled name="4-4x5-Quantity">
@@ -569,14 +669,18 @@
           <h4>1-5x7 - $9.00</h4>
           <p class="small">Select this product<br> with one of the checkboxes below</p>
           <div class="checkbox-wrapper">
-            <label>
-              <input data-checkbox type="checkbox" data-price="9" name='1-5x7-Individual' value='Purchase - $9.00 each'>
-              Individual Photo
-            </label><br>
-            <label>
-              <input data-checkbox type="checkbox" data-price="9" name='1-5x7-Team' value='Purchase - $9.00 each'>
-              Team Photo
+            <input data-checkbox type="checkbox" data-price="9" id="1-5x7-Individual" name='1-5x7-Individual' value='Purchase - $9.00 each'>
+            <label for="1-5x7-Individual" class="custom-checkbox custom-checkbox-small">
+              <i class="fas fa-check"></i>
+              <span class="checkbox-small-label">Individual Photo</span>
             </label>
+
+            <label>
+              <input data-checkbox type="checkbox" data-price="9" id="1-5x7-Team" name='1-5x7-Team' value='Purchase - $9.00 each'>
+              <label for="1-5x7-Team" class="custom-checkbox custom-checkbox-small">
+                <i class="fas fa-check"></i>
+                <span class="checkbox-small-label">Team Photo</span>
+              </label>
           </div>
           <div class="quantity-wrapper center-wrapper">
             <label id="Label-1-5x7-Individual" hidden>Individual Quantity:
@@ -603,7 +707,10 @@
         <div class="product-box">
           <h4>Key Chain (2.5x3.5) - $6.00</h4>
           <p class="small">Select this product<br> with the checkbox below</p>
-          <input class="large-checkbox" data-checkbox type="checkbox" data-price="6" name='Key-Chain' value='Purchase - $6.00 each'>
+          <input class="large-checkbox" data-checkbox type="checkbox" data-price="6" id="Key-Chain" name='Key-Chain' value='Purchase - $6.00 each'>
+          <label for="Key-Chain" class="custom-checkbox custom-checkbox-large">
+            <i class="fas fa-check"></i>
+          </label>
           <div class="quantity-wrapper">
             <label id="Label-Key-Chain" hidden>Quantity:
               <select disabled name="Key-Chain-Quantity">
@@ -620,7 +727,10 @@
         <div class="product-box">
           <h4>Magnet (2.5x3.5) - $6.00</h4>
           <p class="small">Select this product<br> with the checkbox below</p>
-          <input class="large-checkbox" data-checkbox type="checkbox" data-price="6" name='Magnet' value='Purchase - $6.00 each'>
+          <input class="large-checkbox" data-checkbox type="checkbox" data-price="6" id="Magnet" name='Magnet' value='Purchase - $6.00 each'>
+          <label for="Magnet" class="custom-checkbox custom-checkbox-large">
+            <i class="fas fa-check"></i>
+          </label>
           <div class="quantity-wrapper">
             <label id="Label-Magnet" hidden>Quantity:
               <select disabled name="Magnet-Quantity">
@@ -637,7 +747,10 @@
         <div class="product-box">
           <h4>Traditional Button (3.5" round) - $6.00</h4>
           <p class="small">Select this product<br> with the checkbox below</p>
-          <input class="large-checkbox" data-checkbox type="checkbox" data-price="6" name='Traditional-Button' value='Purchase - $6.00 each'>
+          <input class="large-checkbox" data-checkbox type="checkbox" data-price="6" id="Traditional-Button" name='Traditional-Button' value='Purchase - $6.00 each'>
+          <label for="Traditional-Button" class="custom-checkbox custom-checkbox-large">
+            <i class="fas fa-check"></i>
+          </label>
           <div class="quantity-wrapper">
             <label id="Label-Traditional-Button" hidden>Quantity:
               <select disabled name="Traditional-Button-Quantity">
@@ -654,7 +767,10 @@
         <div class="product-box no-border">
           <h4>3.5" Round Personalized Button - $7.00</h4>
           <p class="small">Select this product<br> with the checkbox below</p>
-          <input class="large-checkbox" data-checkbox type="checkbox" data-price="7" name='Round-Personalized-Button' value='Purchase - $7.00 each'>
+          <input class="large-checkbox" data-checkbox type="checkbox" data-price="7" id="Round-Personalized-Button" name='Round-Personalized-Button' value='Purchase - $7.00 each'>
+          <label for="Round-Personalized-Button" class="custom-checkbox custom-checkbox-large">
+            <i class="fas fa-check"></i>
+          </label>
           <div class="quantity-wrapper">
             <label id="Label-Round-Personalized-Button" hidden>Quantity:
               <select disabled name="Round-Personalized-Button-Quantity">
@@ -673,7 +789,7 @@
           <p class="intro-text">The following fields are required to be filled out to submit this order&nbsp;form.</p>
           <!-- Parent's First Name -->
           <div class="field-group"> 
-            <label for="first-name-parent">Parent or Guardian's First Name</label>
+            <label for="first-name-parent">Parent's First Name</label>
               <input type="text" class="text-field" id="first-name-parent" placeholder="Parent or Guardian's First Name" name="first-name-parent">
               <i class="fas fa-check-circle"></i>
               <i class="fas fa-exclamation-circle"></i>
@@ -681,7 +797,7 @@
           </div>
           <!-- Parent's Last Name -->
           <div class="field-group">
-            <label for="last-name-parent">Parent or Guardian's Last Name</label>
+            <label for="last-name-parent">Parent's Last Name</label>
               <input type="text" class="text-field" id="last-name-parent" placeholder="Parent or Guardian's Last Name" name="last-name-parent">
               <i class="fas fa-check-circle"></i>
               <i class="fas fa-exclamation-circle"></i>

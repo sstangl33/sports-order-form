@@ -264,12 +264,14 @@ select {
 .col-1-of-2 {
   width: 50%;
   margin-left: 10%;
+  margin-bottom: 2rem;
 }
 
 .checkbox-wrapper {
-  width: 75%;
-  margin: 1rem -1rem 1rem auto;
+  width: 50%;
+  margin: 1rem auto;
   min-width: 180px;
+  padding-left: 2rem;
 }
 
 .quantity-wrapper {
@@ -367,4 +369,71 @@ select {
 
 .error-message::placeholder {
   opacity: 1; /* Firefox */
+}
+
+.large-checkbox,
+input[data-checkbox] {
+  visibility: hidden;
+  margin: 0;
+  width: 0;
+  height: 0;
+}
+
+.custom-checkbox {
+  width: 4rem;
+  height: 4rem;
+  background-color: #fff;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto !important;
+  position: relative;
+}
+
+.large-checkbox:checked + .custom-checkbox,
+input[data-checkbox]:checked + .custom-checkbox {
+  background-color: #0250bb;
+  border-color: #0250bb;
+}
+
+i.fa-check {
+  position: absolute;
+  color: #fff;
+}
+
+.custom-checkbox-large {
+  width: 4rem;
+  height: 4rem;
+  border: 6px solid #bbb;
+  border-radius: 0.5rem;
+}
+
+.custom-checkbox-large i.fa-check {
+  font-size: 3.6rem;
+  position: absolute;
+  top: 0.25rem;
+  left: 0.25rem;
+  color: #fff;
+}
+
+.custom-checkbox-small {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid #bbb;
+  border-radius: 4px;
+  margin: 0 !important;
+}
+
+.checkbox-small-label {
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  min-width: 150px;
+}
+
+.custom-checkbox-small i.fa-check {
+  font-size: 1.1rem;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  color: #fff;
 }
