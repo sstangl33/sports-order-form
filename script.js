@@ -81,7 +81,7 @@ form.addEventListener("change", (e) => {
   saveSessionData();
 });
 
-form.addEventListener("keyup", (e) => {
+form.addEventListener("blur", (e) => {
   if (!e.target.matches("input[type='text']")) return;
 
   checkInputFields(e.target);
