@@ -1,0 +1,104 @@
+[
+  {
+    "name": "Parent's First Name",
+    "id": "first-name-parent",
+    "type": "text",
+    "category": "personal-info"
+  },
+  {
+    "name": "Parent's Last Name",
+    "id": "last-name-parent",
+    "type": "text",
+    "category": "personal-info"
+  },
+  {
+    "name": "Athlete's First Name",
+    "id": "first-name-athlete",
+    "type": "text",
+    "category": "personal-info"
+  },
+  {
+    "name": "Athlete's Last Name",
+    "id": "last-name-athlete",
+    "type": "text",
+    "category": "personal-info"
+  },
+  {
+    "name": "Athlete's Number",
+    "id": "number-athlete",
+    "type": "text",
+    "category": "personal-info"
+  },
+  {
+    "name": "Team Name",
+    "id": "team-name",
+    "type": "text",
+    "category": "personal-info"
+  },
+  {
+    "name": "Address 1",
+    "id": "address-1",
+    "type": "text",
+    "category": "personal-info"
+  },
+  {
+    "name": "Address 2",
+    "id": "address-2",
+    "type": "text",
+    "category": "personal-info"
+  },
+  {
+    "name": "State",
+    "id": "state",
+    "type": "text",
+    "category": "personal-info"
+  },
+  {
+    "name": "Zip Code",
+    "id": "zip-code",
+    "type": "text",
+    "category": "personal-info"
+  },
+  {
+    "name": "Phone Number",
+    "id": "phone-number",
+    "type": "phone",
+    "category": "personal-info"
+  },
+  {
+    "name": "Email Address",
+    "id": "email-address",
+    "type": "email",
+    "category": "personal-info"
+  },
+  {
+    "name": "Athlete's Full Name",
+    "id": "full-name-athlete",
+    "type": "text",
+    "category": "trader-info"
+  },
+  {
+    "name": "Athlete's Age",
+    "id": "age-athlete",
+    "type": "text",
+    "category": "trader-info"
+  },
+  {
+    "name": "Athlete's Height",
+    "id": "height-athlete",
+    "type": "text",
+    "category": "trader-info"
+  },
+  {
+    "name": "Athlete's Position",
+    "id": "position-athlete",
+    "type": "text",
+    "category": "trader-info"
+  },
+  {
+    "name": "Coach's Name",
+    "id": "coach-name",
+    "type": "text",
+    "category": "trader-info"
+  }
+]
