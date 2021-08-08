@@ -13,6 +13,9 @@ const textInputs = document.querySelectorAll('[type="text"]');
 const orderTotal = document.querySelector(".order-total");
 const orderTotalInput = document.querySelector("[data-order-total-input]");
 
+const personalInfoSection = document.querySelector("#personal-info-fields");
+const traderCardInfoSection = document.querySelector("#trader-card-fields");
+
 const SESSION_STORAGE_PREFIX = "SAUERS_PHOTOGRAPHY_SPORTS_ORDER_FORM";
 const SESSION_STORAGE_KEY_PRODUCTS = `${SESSION_STORAGE_PREFIX}-SELECTED_PRODUCTS`;
 const SESSION_STORAGE_KEY_CUSTOMER_INFO = `${SESSION_STORAGE_PREFIX}-CUSTOMER_INFO`;
@@ -29,6 +32,7 @@ function init() {
   products.forEach((product) => {
     renderProductBoxes(product);
   });
+  renderCustomerFields();
   clearSelections();
   loadProductSelections();
   loadCustomerData();
@@ -148,6 +152,34 @@ function addProductBoxesToPage(productBox, product) {
     return alaCartWrapper.append(productBox);
 }
 
+function renderCustomerFields() {
+  customerFields.forEach((field) => {
+    const customerFieldTemplate = document.querySelector(
+      "#customer-field-template"
+    );
+    const customerInfoField = customerFieldTemplate.content.cloneNode(true);
+    const fieldLabel = customerInfoField.querySelector("[data-field-label");
+    const fieldInput = customerInfoField.querySelector("[data-field-input");
+
+    fieldLabel.setAttribute("for", field.id);
+    fieldLabel.innerText = field.name;
+    fieldInput.setAttribute("class", `${field.type}-field`);
+    fieldInput.setAttribute("id", `${field.id}`);
+    fieldInput.setAttribute("placeholder", `${field.name}`);
+    fieldInput.setAttribute("name", `${field.name}`);
+
+    addCustomerFieldsToPage(customerInfoField, field);
+  });
+}
+
+function addCustomerFieldsToPage(customerInfoField, field) {
+  if (field.category === "personal-info")
+    return personalInfoSection.append(customerInfoField);
+
+  if (field.category === "trader-info")
+    return traderCardInfoSection.append(customerInfoField);
+}
+
 function selectProducts(e) {
   const id = e.target.id;
   const price = Number(e.target.dataset.price);
@@ -202,7 +234,6 @@ function checkForTradersInOrder() {
       entry.name === "Package-C" || entry.name === "8-Deluxe-Trading-Cards"
   );
 
-  const traderCardInfoSection = document.querySelector("#trader-card-fields");
   const traderFields = traderCardInfoSection.querySelectorAll("input");
 
   if (traderCardsInOrder) {

@@ -36,14 +36,8 @@
     "category": "personal-info"
   },
   {
-    "name": "Address 1",
-    "id": "address-1",
-    "type": "text",
-    "category": "personal-info"
-  },
-  {
-    "name": "Address 2",
-    "id": "address-2",
+    "name": "Address",
+    "id": "address",
     "type": "text",
     "category": "personal-info"
   },
