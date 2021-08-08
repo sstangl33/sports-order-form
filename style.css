@@ -145,6 +145,7 @@ input[type="checkbox"]:not(.multi-product input[type="checkbox"]) {
   outline: none;
   box-sizing: border-box;
   transition: all 0.3s;
+  background-color: #fff;
 }
 
 .field-group.success input {
@@ -187,7 +188,7 @@ input[type="checkbox"]:not(.multi-product input[type="checkbox"]) {
 /* product-box */
 .product-box label {
   bottom: 0;
-  margin: 0.5rem;
+  margin: 0.5rem 0;
 }
 
 .large-checkbox {
@@ -231,6 +232,10 @@ button:focus {
   border-bottom: 1px solid #ccc;
 }
 
+.product-box:last-child {
+  border-bottom: none;
+}
+
 .no-border {
   border: none;
 }
@@ -271,6 +276,9 @@ select {
   width: 50%;
   margin: 1rem auto;
   min-width: 180px;
+}
+
+.multi-product .checkbox-wrapper {
   padding-left: 2rem;
 }
 
@@ -281,7 +289,7 @@ select {
 
 .multi-product .quantity-wrapper {
   text-align: right;
-  max-width: 250px;
+  max-width: 225px;
 }
 
 @media screen and (max-width: 258px) {
@@ -372,8 +380,9 @@ select {
 }
 
 .large-checkbox,
-input[data-checkbox] {
-  visibility: hidden;
+input[type="checkbox"] {
+  visibility: hidden !important;
+  display: none;
   margin: 0;
   width: 0;
   height: 0;
@@ -390,7 +399,7 @@ input[data-checkbox] {
 }
 
 .large-checkbox:checked + .custom-checkbox,
-input[data-checkbox]:checked + .custom-checkbox {
+input[type="checkbox"]:checked + .custom-checkbox {
   background-color: #0250bb;
   border-color: #0250bb;
 }
@@ -420,7 +429,7 @@ i.fa-check {
   height: 1.25rem;
   border: 2px solid #bbb;
   border-radius: 4px;
-  margin: 0 !important;
+  margin: 0.75rem 0 !important;
 }
 
 .checkbox-small-label {

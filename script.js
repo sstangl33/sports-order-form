@@ -1,9 +1,20 @@
+import products from "./products.json";
+import customerFields from "./customer-fields.json";
+
 const form = document.querySelector("#form");
+const sportPackageWrapper = document.querySelector("#sport-package-wrapper");
+const designerSpecialtyWrapper = document.querySelector(
+  "#designer-specialty-wrapper"
+);
+const alaCartWrapper = document.querySelector("#ala-carte-wrapper");
 const checkBoxes = document.querySelectorAll("[data-checkbox]");
 const selectBoxes = document.querySelectorAll("select");
 const textInputs = document.querySelectorAll('[type="text"]');
 const orderTotal = document.querySelector(".order-total");
 const orderTotalInput = document.querySelector("[data-order-total-input]");
+
+const personalInfoSection = document.querySelector("#personal-info-fields");
+const traderCardInfoSection = document.querySelector("#trader-card-fields");
 
 const SESSION_STORAGE_PREFIX = "SAUERS_PHOTOGRAPHY_SPORTS_ORDER_FORM";
 const SESSION_STORAGE_KEY_PRODUCTS = `${SESSION_STORAGE_PREFIX}-SELECTED_PRODUCTS`;
@@ -15,15 +26,25 @@ let totalPrice = 0;
 let selectedProducts = loadSessionProductData();
 let customerInfo = loadSessionCustomerData();
 
-clearSelections();
-loadProductSelections();
-loadCustomerData();
+init();
+
+function init() {
+  products.forEach((product) => {
+    renderProductBoxes(product);
+  });
+  renderCustomerFields();
+  clearSelections();
+  loadProductSelections();
+  loadCustomerData();
+}
 
 form.addEventListener("click", (e) => {
-  if (!e.target.matches("input[type='checkbox'")) return;
+  if (!e.target.matches("input[type='checkbox']")) return;
+
   selectProducts(e);
   calcPrice();
   checkForItemsInOrder();
+  checkForTradersInOrder();
   saveSessionData();
 });
 
@@ -52,8 +73,115 @@ form.addEventListener("submit", (e) => {
   submitForm();
 });
 
+function renderProductBoxes(product) {
+  const productBoxTemplate = document.querySelector(`#product-box-template`);
+  const productBox = productBoxTemplate.content.cloneNode(true);
+
+  const productTitle = productBox.querySelector("[data-title]");
+  productTitle.innerText = `${product.name} - $${product.price}.00`;
+
+  const productDescription = productBox.querySelector("[data-description]");
+  productDescription.innerText = product.description;
+
+  product.subProducts.map((sub) => {
+    renderCheckboxes(productBox, product, sub);
+  });
+
+  addProductBoxesToPage(productBox, product);
+}
+
+function renderCheckboxes(productBox, product, sub) {
+  const productID =
+    product.subProducts.length > 1
+      ? `${removeDashes(product.name)}-${removeDashes(sub)}`
+      : removeDashes(sub);
+
+  const productContainer = productBox.querySelector(".product-box");
+  const instructions = productBox.querySelector(".small");
+  const checkboxWrapper = productBox.querySelector(".checkbox-wrapper");
+  const checkboxTemplate = document.querySelector("#checkbox-template");
+  const checkboxBlock = checkboxTemplate.content.cloneNode(true);
+  const checkbox = checkboxBlock.querySelector("[type='checkbox']");
+  const customCheckbox = checkboxBlock.querySelector(".custom-checkbox");
+  const checkboxLabel = checkboxBlock.querySelector(".checkbox-small-label");
+
+  const quantityWrapper = productBox.querySelector(".quantity-wrapper");
+  const quantityTemplate = document.querySelector("#quantity-template");
+  const quantityBlock = quantityTemplate.content.cloneNode(true);
+  const quantityLabel = quantityBlock.querySelector("[data-label]");
+  const quantityLabelText = quantityBlock.querySelector("span");
+  const quantitySelect = quantityBlock.querySelector("[data-select]");
+
+  checkbox.setAttribute("id", productID);
+  checkbox.setAttribute("data-price", `${product.price}`);
+  checkbox.setAttribute("value", `Purchase - $${product.price}.00 each`);
+  customCheckbox.setAttribute("for", `${productID}`);
+
+  quantitySelect.setAttribute("name", `${productID}-Quantity`);
+  quantityLabel.setAttribute("id", `Label-${productID}`);
+
+  if (product.subProducts.length > 1) {
+    productContainer.classList.add("multi-product");
+    instructions.innerText = `Select this product\nwith the checkboxes below`;
+    checkboxLabel.innerText = cleanLabelText(sub);
+    quantityLabelText.textContent = `${cleanLabelText(
+      sub.split(" Photo")[0]
+    )} Quantity:`;
+    customCheckbox.classList.remove("custom-checkbox-large");
+    customCheckbox.classList.add("custom-checkbox-small");
+  }
+
+  checkboxWrapper.append(checkboxBlock);
+  quantityWrapper.append(quantityBlock);
+}
+
+function removeDashes(text) {
+  return text.replace(/ /g, "-");
+}
+
+function cleanLabelText(text) {
+  return text.replace(/-/g, " ").replace(/plus/g, "+");
+}
+
+function addProductBoxesToPage(productBox, product) {
+  if (product.category === "sports-package")
+    return sportPackageWrapper.append(productBox);
+  if (product.category === "designer-specialty")
+    return designerSpecialtyWrapper.append(productBox);
+  if (product.category === "ala-carte")
+    return alaCartWrapper.append(productBox);
+}
+
+function renderCustomerFields() {
+  customerFields.forEach((field) => {
+    const customerFieldTemplate = document.querySelector(
+      "#customer-field-template"
+    );
+    const customerInfoField = customerFieldTemplate.content.cloneNode(true);
+    const fieldLabel = customerInfoField.querySelector("[data-field-label");
+    const fieldInput = customerInfoField.querySelector("[data-field-input");
+
+    fieldLabel.setAttribute("for", field.id);
+    fieldLabel.innerText = field.name;
+    fieldInput.setAttribute("class", `${field.type}-field`);
+    fieldInput.setAttribute("id", `${field.id}`);
+    fieldInput.setAttribute("placeholder", `${field.name}`);
+    fieldInput.setAttribute("name", `${field.name}`);
+
+    addCustomerFieldsToPage(customerInfoField, field);
+  });
+}
+
+function addCustomerFieldsToPage(customerInfoField, field) {
+  if (field.category === "personal-info")
+    return personalInfoSection.append(customerInfoField);
+
+  if (field.category === "trader-info")
+    return traderCardInfoSection.append(customerInfoField);
+}
+
 function selectProducts(e) {
-  const id = e.target.name;
+  const id = e.target.id;
   const price = Number(e.target.dataset.price);
   const productBox = e.target.closest(".product-box");
   const quantityLabel = productBox.querySelector(`#Label-${id}`);
@@ -63,19 +191,18 @@ function selectProducts(e) {
   if (e.target.checked) {
     quantityLabel.hidden = false;
     quantitySelector.disabled = false;
-    selectedProducts.push({
-      name: e.target.name,
+    return selectedProducts.push({
+      name: e.target.id,
       price: parseInt(price),
       quantity: parseInt(quantity),
     });
-  } else {
-    quantityLabel.hidden = true;
-    quantitySelector.disabled = true;
-    quantitySelector.value = 1;
-    selectedProducts = selectedProducts.filter(
-      (product) => product.name !== e.target.name
-    );
   }
+  quantityLabel.hidden = true;
+  quantitySelector.disabled = true;
+  quantitySelector.value = 1;
+  return (selectedProducts = selectedProducts.filter(
+    (product) => product.name !== e.target.id
+  ));
 }
 
 function calcPrice() {
@@ -92,15 +219,13 @@ function calcPrice() {
 }
 
 function checkForItemsInOrder() {
-  customerInfoSection = document.querySelector("#customer-info");
+  const customerInfoSection = document.querySelector("#customer-info");
 
   if (selectedProducts.length === 0) {
-    customerInfoSection.hidden = true;
-  } else {
-    customerInfoSection.hidden = false;
+    return (customerInfoSection.hidden = true);
   }
 
-  checkForTradersInOrder();
+  return (customerInfoSection.hidden = false);
 }
 
 function checkForTradersInOrder() {
@@ -109,16 +234,17 @@ function checkForTradersInOrder() {
       entry.name === "Package-C" || entry.name === "8-Deluxe-Trading-Cards"
   );
 
-  const traderCardInfoSection = document.querySelector("#trader-card-info");
   const traderFields = traderCardInfoSection.querySelectorAll("input");
 
   if (traderCardsInOrder) {
     traderCardInfoSection.hidden = false;
     traderFields.forEach((field) => (field.disabled = false));
-  } else {
-    traderCardInfoSection.hidden = true;
-    traderFields.forEach((field) => (field.disabled = true));
+    return;
   }
+
+  traderCardInfoSection.hidden = true;
+  traderFields.forEach((field) => (field.disabled = true));
+  return;
 }
 
 function updateQuantity(e) {
@@ -131,14 +257,14 @@ function updateQuantity(e) {
   const existingItem = selectedProducts.find((entry) => entry.name === id);
 
   if (existingItem) {
-    existingItem.quantity = parseInt(e.target.value);
-  } else {
-    selectedProducts.push({
-      name: product.name,
-      price: parseInt(product.dataset.price),
-      quantity: parseInt(e.target.value),
-    });
+    return (existingItem.quantity = parseInt(e.target.value));
   }
+
+  return selectedProducts.push({
+    name: product.name,
+    price: parseInt(product.dataset.price),
+    quantity: parseInt(e.target.value),
+  });
 }
 
 function submitForm() {
@@ -158,17 +284,18 @@ function submitForm() {
         entry.name !== "coach"
     );
   }
-  textFieldArray.forEach((field) => {
+  textFieldArray.map((field) => {
     checkInputFields(field);
   });
 
   if (errorArray.length !== 0) {
     errorArray[0].scrollIntoView();
     errorArray[0].focus();
-  } else {
-    form.submit();
-    sessionStorage.removeItem(SESSION_STORAGE_KEY_PRODUCTS);
+    return;
   }
+
+  form.submit();
+  sessionStorage.removeItem(SESSION_STORAGE_KEY_PRODUCTS);
 }
 
 function checkInputFields(field) {
@@ -247,9 +374,9 @@ function loadSessionCustomerData() {
 }
 
 function loadProductSelections() {
-  selectedProducts.forEach((entry) => {
+  selectedProducts.map((entry) => {
     const id = entry.name;
-    const productInput = document.querySelector(`input[name="${id}"]`);
+    const productInput = document.querySelector(`input[id="${id}"]`);
     const productBox = productInput.closest(".product-box");
     const quantityLabel = productBox.querySelector(`#Label-${id}`);
     const quantitySelector = quantityLabel.querySelector("select");
@@ -260,6 +387,7 @@ function loadProductSelections() {
     quantitySelector.value = entry.quantity;
     calcPrice();
     checkForItemsInOrder();
+    checkForTradersInOrder();
   });
 }
 
